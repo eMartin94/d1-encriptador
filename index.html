@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encriptador - Desafío 1</title>
+  <link href='/style.css' rel='stylesheet'>
+</head>
+<body>
+  <header>
+    <strong class="logo">Encriptador</strong>
+    <p>eMartinDev</p>
+  </header>
+  <main>
+    <section class="encriptador">
+      <form class="encriptador__form">
+        <textarea name="text" id="text" cols="30" rows="10" placeholder="Ingresa el texto aquí"></textarea>
+        <div class="encriptador__info">
+          <span class="info__icon">?</span>
+          <p class="info__text">Solo letras minúsculas y sin acentos.</p>
+        </div>
+        <div class="encriptador__btns">
+          <button type="submit" class="btn btn--encriptar">Encriptar</button>
+          <button type="submit" class="btn btn--desencriptar">Desencriptar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="resultado">
+      <div class="resultado__noencontrado">
+        <img src="img/img-notfound.svg" alt="not found">
+        <strong>Ningún mensaje fue encontrado</strong>
+        <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+      </div>
+      <div class="resultado__encontrado">
+        <p class="info__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat explicabo molestiae libero debitis distinctio quo sequi esse ipsam nisi dolores iste maxime doloribus, nostrum eligendi hic laudantium doloremque consectetur ipsum.</p>
+        <button type="button" class="btn btn--copiar">Copiar</button>
+      </div>
+      <div class="resultado__copiado">
+        <strong>Texto copiado al portapapeles</strong>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>Challenge 1 - Oracle ONE / alura</p>
+  </footer>
+</body>
+</html>
