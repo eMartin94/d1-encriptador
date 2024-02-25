@@ -34,6 +34,7 @@ header {
 }
 
 main {
+    position: relative;
     padding: var(--spacing);
     max-width: 1200px;
     margin: 0 auto;
@@ -146,12 +147,11 @@ main {
     gap: 1rem;
     justify-content: center;
     align-items: center;
-    /* max-width: 350px; */
     position: relative;
 }
 
 .resultado__noencontrado {
-    display: none;
+    display: flex;
     height: 100%;
     flex-direction: column;
     gap: .5rem;
@@ -176,16 +176,18 @@ main {
     font-size: .75rem;
     color: var(--color-paragraph);
     text-align: center;
+    padding: var(--spacing);
 }
 
 .resultado__encontrado {
-    display: flex;
+    display: none;
     height: 100%;
     flex-direction: column;
     gap: .5rem;
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing);
+    
 }
 
 .resultado__encontrado .btn--copiar:hover {
@@ -193,8 +195,13 @@ main {
     color: white;
 }
 
+.resultado__encontrado p {
+    text-overflow: ellipsis;
+}
 .resultado__encontrado .info__text {
-    color: var(--color-paragraph);
+    color: var(--color-secondary);
+    word-break: break-all;
+    max-width: 100%;
 }
 
 .resultado__copiado {
@@ -206,6 +213,56 @@ main {
     font-size: .75rem;
     bottom: 20%;
     left: auto;
+    display: block;
+    opacity: 0;
+    height: auto;
+    transform: scale(0);
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+}
+
+.resultado__copiado.active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+}
+
+.alert {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-paragraph);
+    border-radius: 1rem;
+    color: #fff;
+    padding: var(--spacing);
+    display: block;
+    opacity: 0;
+    transform: scale(0);
+    min-height: 100px;
+    height: auto;
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+    
+}
+.alert.active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+}
+.alert__close {
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: .25rem
+}
+
+.alert__content  {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+.alert__content strong {
+    margin-top: 1rem;
+    font-size: 1rem;
 }
 
 footer {
@@ -216,6 +273,7 @@ footer {
 @media (width <= 768px) {
     main {
         grid-template-columns: 1fr;
+        position: relative;
     }
 
     .resultado {
